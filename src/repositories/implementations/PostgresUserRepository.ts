@@ -14,7 +14,7 @@ export class PostgresUserRepository implements IDeliverysRepository {
   
   async save(delivery: Delivery): Promise<void> {
     this.deliverys.push(delivery);
-    // console.log(this.deliverys);
+    console.log(this.deliverys);
   }
   
   async delete(delivey: Delivery): Promise<void> {

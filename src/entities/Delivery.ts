@@ -1,4 +1,4 @@
-import { v4 as uuid } from 'uuid';
+import { IUUID } from './../utils/IUUID';
 
 interface IAddress {
   streetAddress: string;
@@ -20,11 +20,11 @@ class Delivery {
   public weight: number;
   public address: IAddress;
 
-  constructor(props: Omit<Delivery, 'id'>, id?: string) {
+  constructor(props: Omit<Delivery,'id'>, private uuid: IUUID, id?: string) {
     Object.assign(this, props);
 
     if(!id) {
-      this.id = uuid();
+      this.id = this.uuid.execute();
     }
   } 
 }
