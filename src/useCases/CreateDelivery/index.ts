@@ -1,13 +1,13 @@
 import { UUID } from "./../../utils/implementations/UUID";
-import { PostgresUserRepository } from "../../repositories/implementations/PostgresUserRepository";
+import { PostgresDeliveriesRepository } from "../../repositories/implementations/PostgresDeliveriesRepository";
 import { CreateDeliveryController } from "./CreateDeliveryController";
 import { CreateDeliveryUseCase } from "./CreateDeliveryUseCase";
 
-const postgresUserRepository = new PostgresUserRepository();
+const postgresDeliveriesRepository = new PostgresDeliveriesRepository();
 const uuid = new UUID();
 
 const createDeliveryUseCase = new CreateDeliveryUseCase(
-  postgresUserRepository,
+  postgresDeliveriesRepository,
   uuid
 );
 

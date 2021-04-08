@@ -1,11 +1,11 @@
 import { IUUID } from "./../../utils/IUUID";
 import { ICreateDeliveryRequestDTO } from "./CreateDeliveryDTO";
 import { Delivery } from "../../entities/Delivery";
-import { IDeliverysRepository } from "../../repositories/IDeliverysRepository";
+import { IDeliveriesRepository } from "../../repositories/IDeliveriesRepository";
 
 export class CreateDeliveryUseCase {
   constructor(
-    private deliverysRepository: IDeliverysRepository,
+    private deliveriesRepository: IDeliveriesRepository,
     private uuid: IUUID
   ) {}
 
@@ -37,6 +37,6 @@ export class CreateDeliveryUseCase {
       );
     }
 
-    await this.deliverysRepository.save(delivery);
+    await this.deliveriesRepository.save(delivery);
   }
 }
