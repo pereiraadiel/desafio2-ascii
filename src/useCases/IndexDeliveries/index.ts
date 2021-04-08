@@ -1,8 +1,8 @@
 import { IndexDeliveriesController } from "./IndexDeliveriesController";
-import { PostgresDeliveriesRepository } from "../../repositories/implementations/PostgresDeliveriesRepository";
 import { IndexDeliveriesUseCase } from "./IndexDeliveriesUseCase";
+import { TypeormDeliveriesRepository } from "../../repositories/implementations/TypeormDeliveriesRepository";
 
-const deliveriesRepository = new PostgresDeliveriesRepository();
+const deliveriesRepository = new TypeormDeliveriesRepository();
 
 const indexDeliveriesUseCase = new IndexDeliveriesUseCase(deliveriesRepository);
 

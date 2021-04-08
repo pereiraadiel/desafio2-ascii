@@ -1,26 +1,62 @@
+import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { UUID } from '../utils/implementations/UUID';
 import { IUUID } from './../utils/IUUID';
 
-interface IAddress {
-  streetAddress: string;
-  number: string;
-  neighborhood: string;
-  referential: string;
-  city: string;
-  state: string;
-  country: string;
-  geo: {
-    lat: number;
-    log: number;
-  }
-}
+// interface IAddress {
+//   streetAddress: string;
+//   number: string;
+//   neighborhood: string;
+//   referential: string;
+//   city: string;
+//   state: string;
+//   country: string;
+//   geo: {
+//     lat: number;
+//     log: number;
+//   }
+// }
 
+@Entity("deliveries")
 class Delivery {
+  @PrimaryColumn()
   public readonly id: string;
+  
+  @Column()
   public name: string;
+  
+  @Column()
   public weight: number;
-  public address: IAddress;
+  
+  @Column({
+    name: "street_address"
+  })
+  streetAddress: string;
+  
+  @Column()
+  number: string;
+  
+  @Column()
+  neighborhood: string;
+  
+  @Column()
+  referential: string;
 
-  constructor(props: Omit<Delivery,'id'>, private uuid: IUUID, id?: string) {
+  @Column()
+  city: string;
+
+  @Column()
+  state: string;
+
+  @Column()
+  country: string;
+
+  @Column()
+  lat?: number;
+
+  @Column()
+  log?: number;
+
+  constructor(props: Omit<Delivery,'id'>, protected uuid: IUUID = new UUID(), id?: string) {
     Object.assign(this, props);
 
     if(!id) {
@@ -31,5 +67,5 @@ class Delivery {
 
 export {
   Delivery,
-  IAddress
+  // IAddress
 }

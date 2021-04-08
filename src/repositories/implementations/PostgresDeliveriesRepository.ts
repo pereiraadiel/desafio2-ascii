@@ -15,7 +15,7 @@ export class PostgresDeliveriesRepository implements IDeliveriesRepository {
     console.log(this.deliveries);
   }
 
-  async delete(delivey: Delivery): Promise<void> {
+  async delete(delivey: Delivery): Promise<boolean> {
     const index = this.deliveries.indexOf(delivey);
     const dels: Delivery[] = [];
 
@@ -24,5 +24,6 @@ export class PostgresDeliveriesRepository implements IDeliveriesRepository {
     });
 
     this.deliveries = dels;
+    return true;
   }
 }

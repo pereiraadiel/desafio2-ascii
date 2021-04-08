@@ -6,12 +6,32 @@ export class CreateDeliveryController {
 
   async handle(req: Request, res: Response): Promise<Response> {
     try {
-      const { name, weight, address } = req.body;
+      const { 
+        name, 
+        weight,
+        streetAddress,
+        number,
+        neighborhood,
+        referential,
+        city,
+        state,
+        country,
+        lat,
+        log
+      } = req.body;
 
       await this.createDeliveryUseCase.execute({
         name,
         weight,
-        address
+        streetAddress,
+        number,
+        neighborhood,
+        referential,
+        city,
+        state,
+        country,
+        lat,
+        log
       });
 
       return res.status(201).send();
